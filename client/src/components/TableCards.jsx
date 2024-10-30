@@ -2,6 +2,7 @@ import Card from "./Card";
 import style from '../css/TableCards.module.css';
 import React, { useEffect, useState } from 'react';
 import { getCards } from "../logic/axios";
+import {deleteCard} from '../logic/axios';
 
 const TableCards = () => {
     const [cards, setCards] = useState([]); 
@@ -18,7 +19,6 @@ const TableCards = () => {
     }, []);
 
     const handleAddCard = () => {
-        console.log('handleAddCard')
         setIsFormAddCard(true);
     }
 
@@ -27,9 +27,15 @@ const TableCards = () => {
         setIsFormAddCard(false); 
     };
 
-    const handleDeleteCard = (cardId) => {
-        setCards((prevCards) => prevCards.filter(card => card.id !== cardId));
-    };
+    const handleDeleteCard = async (cardId) => {
+        try {
+            const res = await deleteCard(cardId);
+            console.log(res);
+            setCards((prevCards) => prevCards.filter(card => card.id !== cardId));
+        } catch (error){
+            alert('Error deleting card:', error);
+        }
+    }
 
 
     return (
@@ -42,7 +48,7 @@ const TableCards = () => {
                     color={card.color}
                     isEdit={false}
                     isFormAddCard={false}
-                    onDeleteCard={handleDeleteCard} 
+                    handleDeleteCard={handleDeleteCard} 
                 />
             ))}
             <div className={style.addCard}><span className={style.buttonAddCard} onClick={() => handleAddCard()}>+</span></div>
