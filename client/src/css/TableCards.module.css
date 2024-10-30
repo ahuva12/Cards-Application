@@ -19,4 +19,10 @@
 
 .buttonAddCard {
     cursor: pointer;
+    transition: font-size 0.3s; 
+}
+
+.buttonAddCard:hover {
+    font-size: 1.1em; 
+    padding: 2rem;
 }

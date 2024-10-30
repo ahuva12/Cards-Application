@@ -3,7 +3,6 @@ import { http } from "./https";
 // get all the cards
 export const getCards = async () => {
     try {
-        console.log('getTabs');
         const response = await http.get('/cards');
         console.log(response.data);  
         return response.data; 
@@ -42,7 +41,7 @@ export const postCard = async (newCard) => {
 // update card
 export const updateCard = async (newCard) => {
     try {
-        console.log('postCard');
+        console.log('updateCard');
         const response = await http.patch(`/cards/${newCard.id}`, newCard);
         console.log(response.data);  
         return response.data; 
