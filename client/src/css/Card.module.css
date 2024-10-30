@@ -1,0 +1,40 @@
+.Card {
+    width: 17rem;
+    height: 14rem;
+    border: 1px white solid;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.Card p {
+    font-size: 1.5rem;
+}
+
+.BarCard {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.garbageIcon {
+    width: 2.5rem;
+    cursor: pointer;
+}
+
+.choiseColorButton {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 0.4px solid black;
+    background-color: lightgray; 
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s; 
+}
+
+.choiseColorButton:hover {
+    filter: brightness(1.2); 
+}
