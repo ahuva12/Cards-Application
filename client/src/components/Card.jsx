@@ -2,6 +2,7 @@ import style from '../css/Card.module.css';
 import { useState } from 'react';
 import ColorSelector from './ColorSelector';
 import {updateCard as updateCardAxios, postCard} from '../logic/axios';
+import { AiFillEdit } from "react-icons/ai";
 
 const Card = ({ cardId, text, color, isEdit, isFormAddCard, onAddCard, handleDeleteCard}) => {
 
@@ -48,7 +49,7 @@ const Card = ({ cardId, text, color, isEdit, isFormAddCard, onAddCard, handleDel
                     />
                 ) : (
                     <div className={style.BarCard}>
-                        <button className={style.choiseColorButton} onClick={() => setIsEditing(true)}></button>
+                        <button className={style.choiseColorButton} onClick={() => setIsEditing(true)}><AiFillEdit className={style.iconEdit} /></button>
                         <img className={style.garbageIcon} src="/img/garbage_icon.png" alt="garbage_icon" onClick={() => handleDeleteCard(cardId)}/>
                     </div>
                 )}

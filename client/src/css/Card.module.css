@@ -52,3 +52,8 @@
 .choiseColorButton:hover {
     filter: brightness(1.2); 
 }
+
+.iconEdit {
+    width: 1.8rem;
+    height: 1.8rem;
+}
